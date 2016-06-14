@@ -23,14 +23,17 @@ if (function_exists($function)) {
     echo json_encode(array("status" => "error", "msg" => 'function not existed'));
     exit();
 }
+//http://fb-get-phonenumber.local:8080/?function=getPhoneNumber&audience_name=TamTrangSuaNon&post_id=1689393634653033&limit=1000&token=EAACEdEose0cBAFvlcXrHkckk5Rd5169eLJvYYOpq2zU61ZAfBU1QWPNhYtR1exNN1O2HI0Ib6sXbytajxVOSvlDBFRK3LP7e5qKiSxmdXu6sDL96Ffc117eaffchGYjGlXl85u9C2MIUaUYww9f7qLUmfSDphKkf5XVpawAZDZD
 function getPhoneNumber(){
     $audience_name = $_GET['audience_name'];
     $access_token = $_GET['token'];
+    $limit = $_GET['limit'];
+    $post_id = $_GET['post_id'];
     if(!$access_token) $access_token = ACCESS_TOKEN;
     $filename = $audience_name . '_' . time() . '_' . date('d_m_Y');
     $phone_number_allow = array('090','091','092','093','094','095','096','097','098','099');
     $ch = curl_init();
-    $api_url = 'https://graph.facebook.com/' . POST_ID . '/comments?access_token=' . $access_token . PARAMS;
+    $api_url = 'https://graph.facebook.com/' . $post_id . '/comments?access_token=' . $access_token . '&limit=' . $limit;
 //    echo $api_url;die();
     curl_setopt($ch, CURLOPT_URL, $api_url);
     curl_setopt($ch, CURLOPT_HEADER, 0);
