@@ -5,8 +5,9 @@ ini_set('max_execution_time', 600);
 
 const POST_ID = '1689393634653033';
 const ACCESS_TOKEN = 'EAACEdEose0cBAPA9Qi8SkyZCOTkEUCjZCiIvjeL9pIZCSSEIIvWrEoGipyEN0Fzken0dIXOBCFMxHQt0AmFX5zrxybV8HJ3LEahveTSGZANwfxUETzl6uaVtN0ZBeYPOMud3oRyGD1iHwy4BMdIzB4l0fVWP3LnfbJWSlfmoDbwZDZD';
-const PARAMS = '&limit=30000';
+const PARAMS = '&limit=1000';
 const PHONE_NUMBER_LENGTH = 10;
+const FILE_PATH = 'D:/FB_Ads/';
 
 
 if ($_GET['callback']) {
@@ -73,7 +74,7 @@ function getPhoneNumber(){
     curl_close($ch);
 }
 function openFile($filename){
-    $myfile = fopen('assets/'.$filename, "w") or die("Unable to open file!");
+    $myfile = fopen(FILE_PATH . $filename, "w") or die("Unable to open file!");
     return $myfile;
 }
 function writeFile($myfile, $data){
