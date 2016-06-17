@@ -1,5 +1,5 @@
 <?php
-
+echo phpinfo();
 ini_set('display_errors', false);
 ini_set('max_execution_time', 600);
 
